@@ -1,0 +1,419 @@
+/* ─── Page layout ────────────────────────────────────────────────────────── */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+
+.header {
+  background: linear-gradient(135deg, #fff8f5 0%, #fff 60%, #f5f0ff 100%);
+  border-bottom: 1px solid var(--color-border);
+  padding: 64px 24px 56px;
+}
+
+.header-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.header-byline {
+  font-size: 0.9rem;
+  font-family: 'Georgia', serif;
+  color: var(--color-accent);
+  font-style: italic;
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.header-title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-family: 'Georgia', serif;
+  font-weight: normal;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+
+.header-bio {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  animation: fadeUp 0.5s 0.2s ease both;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-text);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background var(--transition), transform var(--transition);
+  margin-bottom: 40px;
+  animation: fadeUp 0.5s 0.3s ease both;
+}
+
+.github-btn:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+/* ─── Progress ───────────────────────────────────────────────────────────── */
+
+.progress-wrap {
+  animation: fadeUp 0.5s 0.4s ease both;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.progress-count {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.progress-count strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.progress-pct {
+  font-size: 0.85rem;
+  color: var(--color-text-faint);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), #f59b47);
+  border-radius: 999px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Main / Grid ────────────────────────────────────────────────────────── */
+
+.main {
+  flex: 1;
+  padding: 48px 24px;
+}
+
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Card ───────────────────────────────────────────────────────────────── */
+
+.card-wrapper {
+  perspective: 800px;
+  height: 180px;
+  outline: none;
+  border-radius: var(--radius);
+}
+
+.card-wrapper.card-unlocked {
+  cursor: pointer;
+}
+
+.card-wrapper.card-unlocked:focus-visible .card-inner {
+  box-shadow: 0 0 0 3px var(--color-accent);
+}
+
+.card-wrapper.card-unlocked:hover .card-inner {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow var(--transition), translateY var(--transition);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ─── Card front ─────────────────────────────────────────────────────────── */
+
+.card-front {
+  background: var(--color-surface-locked);
+  border: 1px solid var(--color-border);
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.card-front--live {
+  background: var(--color-surface);
+  border-color: #e0d8cf;
+  background-image: radial-gradient(ellipse at top right, #fff3ee 0%, #fff 70%);
+}
+
+.card-week-num {
+  font-size: 1.65rem;
+  font-weight: 700;
+  font-family: 'Georgia', serif;
+  color: var(--color-week-num);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.card-front--live .card-week-num {
+  color: var(--color-accent);
+}
+
+.card-lock {
+  color: var(--color-text-faint);
+  margin-top: auto;
+  opacity: 0.5;
+}
+
+.card-front-title {
+  font-size: 0.8rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.card-flip-hint {
+  font-size: 0.7rem;
+  color: var(--color-text-faint);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin-top: auto;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.card-wrapper.card-unlocked:hover .card-flip-hint {
+  opacity: 1;
+}
+
+/* ─── Card back ──────────────────────────────────────────────────────────── */
+
+.card-back {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transform: rotateY(180deg);
+}
+
+.card-back-live,
+.card-back-locked {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-back-week-label {
+  font-size: 0.7rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.card-back-title {
+  font-size: 1rem;
+  font-family: 'Georgia', serif;
+  font-weight: normal;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.card-back-desc {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.card-launch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 7px;
+  font-size: 0.78rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: background var(--transition), transform var(--transition);
+  align-self: flex-start;
+}
+
+.card-launch-btn:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+/* Card back locked */
+
+.card-back-locked .card-back-week-label {
+  color: var(--color-text-faint);
+}
+
+.card-coming {
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin-bottom: 2px;
+}
+
+.card-coming-date {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.card-not-yet {
+  font-size: 0.72rem;
+  color: var(--color-text-faint);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-style: italic;
+  margin-top: auto;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────────────────── */
+
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding: 40px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-surface);
+}
+
+.footer-name {
+  font-size: 1rem;
+  font-family: 'Georgia', serif;
+  color: var(--color-text);
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: color var(--transition);
+}
+
+.footer-link:hover {
+  color: var(--color-text);
+}
+
+.footer-tagline {
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-style: italic;
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered card entrance */
+.grid > *:nth-child(1)  { animation: fadeUp 0.4s 0.05s ease both; }
+.grid > *:nth-child(2)  { animation: fadeUp 0.4s 0.10s ease both; }
+.grid > *:nth-child(3)  { animation: fadeUp 0.4s 0.15s ease both; }
+.grid > *:nth-child(4)  { animation: fadeUp 0.4s 0.20s ease both; }
+.grid > *:nth-child(5)  { animation: fadeUp 0.4s 0.25s ease both; }
+.grid > *:nth-child(6)  { animation: fadeUp 0.4s 0.30s ease both; }
+.grid > *:nth-child(7)  { animation: fadeUp 0.4s 0.35s ease both; }
+.grid > *:nth-child(8)  { animation: fadeUp 0.4s 0.40s ease both; }
+.grid > *:nth-child(n+9) { animation: fadeUp 0.4s 0.45s ease both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

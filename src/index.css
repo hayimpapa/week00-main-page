@@ -1,0 +1,37 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #faf9f7;
+  --color-surface: #ffffff;
+  --color-surface-locked: #f0ede9;
+  --color-border: #e8e3dc;
+  --color-text: #1a1714;
+  --color-text-muted: #7c7268;
+  --color-text-faint: #b0a89e;
+  --color-accent: #e85d3a;
+  --color-accent-hover: #d44f2e;
+  --color-accent-light: #fff3f0;
+  --color-week-num: #c4bdb5;
+  --shadow-card: 0 2px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-card-hover: 0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+  --radius: 14px;
+  --transition: 0.2s ease;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
