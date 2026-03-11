@@ -31,10 +31,10 @@ const weeks: Week[] = [
   },
   {
     week: 2,
-    title: 'Receipt Analyser',
-    description: 'Scan receipts and analyse spending',
-    url: '',
-    live: false,
+    title: 'Receipt Scanner & Analyser',
+    description: 'Scan receipts and analyse grocery and shopping spending',
+    url: '/week02',
+    live: true,
     liveDate: '2026-03-15',
   },
   // Weeks 3–52: auto-generated below
