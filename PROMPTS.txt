@@ -1,0 +1,127 @@
+## Homepage - Initial Prompt
+
+Build the main homepage for "52 apps in 52 weeks
+before I turn 52" by Hey I'm Papa.
+
+This is a standalone React app with its own
+GitHub repository, deployable to Vercel.
+All weekly apps will be deployed as separate
+repos but linked from this homepage.
+
+DESIGN:
+- Light mode, clean, modern, public-facing
+- Warm and personal, not corporate
+- Mobile responsive
+- Subtle animations throughout
+
+HEADER SECTION:
+- Title: "52 apps. 52 weeks. Before I turn 52."
+- Subtitle: "Hey I'm Papa"
+- A short paragraph explaining the project:
+  "I'm Gabor. I turned 51 and made myself
+  a slightly ridiculous promise. Every week
+  for a year I'll build one app from scratch
+  using AI tools — no traditional coding
+  background, just curiosity and a problem
+  worth solving. This is what that looks like,
+  honestly, week by week."
+- A GitHub button linking to
+  https://github.com/hayimpapa
+  (opens in new tab), with GitHub icon
+- A progress bar showing X/52 complete
+  updates automatically based on how many
+  weeks are marked as live
+
+52 FLIP CARDS:
+Display all 52 cards in a responsive grid
+(4 columns desktop, 2 columns tablet,
+1 column mobile)
+
+CARD FRONT:
+- Week number large and prominent e.g. "W01"
+- A subtle lock icon on unbuilt weeks
+- Soft grey background for locked weeks
+- Coloured/white background for live weeks
+
+CARD FLIP ANIMATION:
+- On click or tap, card flips horizontally
+  with a smooth CSS 3D flip animation
+- Flip back on second click
+
+CARD BACK (live weeks):
+- App name as title
+- One line description
+- "Launch App" button that links to the
+  deployed app URL
+- A small "Week XX" label in corner
+
+CARD BACK (locked/future weeks):
+- "Coming Week of [date]"
+- A subtle message: "Not built yet — check back soon"
+- No launch button
+- Greyed out styling
+
+CARD DATA:
+Manage card content in a simple data array
+at the top of the component so it is easy
+to update each week without touching
+the layout code. Structure like this:
+
+const weeks = [
+  {
+    week: 1,
+    title: "The Planner",
+    description: "Track and plan all 52 builds",
+    url: "/week01",
+    live: true,
+    liveDate: "2026-03-08"
+  },
+  {
+    week: 2,
+    title: "Receipt Analyser",
+    description: "Scan receipts and analyse spending",
+    url: "/week02",
+    live: false,
+    liveDate: "2026-03-15"
+  },
+  // weeks 3-52 with live: false
+  // and sequential liveDate values
+  // 7 days apart from 2026-03-08
+]
+
+AUTO-LOCK LOGIC:
+A week card should only be unlocked
+(non-greyed, flippable to launch) if:
+- live: true AND
+- today's date is on or after liveDate
+
+This means cards unlock automatically
+on the correct week without any manual
+code changes.
+
+FOOTER:
+- "Built by Gabor — Hey I'm Papa"
+- GitHub link: https://github.com/hayimpapa
+- Small text: "One build a week. No guarantees.
+  All code public."
+
+ADDITIONAL FILES TO CREATE:
+
+1. PROMPTS.txt
+   Create a file called PROMPTS.txt in the
+   root of the project. Paste this prompt
+   in full inside it, labelled:
+   "## Homepage - Initial Prompt"
+
+2. README.md
+   Include:
+   - Project name and description
+   - "Part of 52 apps in 52 weeks before
+     I turn 52 — Hey I'm Papa"
+   - How to run locally
+   - How to add a new week (point to the
+     weeks array in the code)
+   - Reference to PROMPTS.txt:
+     "The prompt used to generate this app
+     is documented in PROMPTS.txt"
+   - GitHub: https://github.com/hayimpapa
