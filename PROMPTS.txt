@@ -125,3 +125,83 @@ ADDITIONAL FILES TO CREATE:
      "The prompt used to generate this app
      is documented in PROMPTS.txt"
    - GitHub: https://github.com/hayimpapa
+
+---
+
+## Homepage - Update 1 - UI and card fixes
+
+Please make the following updates to the
+week00-main-page homepage app:
+
+1. HEADER TEXT CHANGES
+Remove "Hey I'm Papa" from the header
+completely.
+Change the author reference to simply
+"I'm Gabor" or just "Gabor" -
+keep it professional and personal,
+no handle or nickname needed.
+The project title "52 apps. 52 weeks.
+Before I turn 52." stays as is.
+
+2. FLIP CARD BACK - TWO BUTTONS
+Currently the card back has one Launch
+button that goes to GitHub.
+Replace with two buttons:
+Button 1 - Primary, prominent:
+Label: "Launch App"
+Links to the deployed app URL
+e.g. https://52-app.com/week01
+Style: solid filled button, stands out
+Button 2 - Secondary, subtle:
+A GitHub icon button only (no text label)
+Links to the specific week's GitHub repo
+Opens in new tab
+Style: outlined or icon-only, less prominent
+Update the weeks data array to include
+both a url field (deployed app) and a
+githubUrl field (GitHub repo) per week.
+Pre-populate week01 with:
+url: "https://52-app.com/week01"
+githubUrl: "https://github.com/hayimpapa/week01-the-planner"
+Leave other weeks with placeholder
+values for now.
+
+3. CARD UNLOCK SCHEDULING FIX
+Currently week02 is not showing as
+unlocked even though its date may
+have passed.
+Please review the auto-unlock logic:
+- A card should unlock when today's
+  date is on or after the week's
+  liveDate value AND live: true
+- Check that date comparisons are
+  using local date correctly, not
+  UTC which can cause off-by-one
+  day issues
+- Week01 liveDate is 2026-03-08
+- Week02 liveDate is 2026-03-15
+- Add a small console.log for each
+  week showing today's date vs
+  liveDate so we can debug if
+  still not working
+Also clarify: should a card unlock
+based on date alone, or does it
+also require live: true to be
+manually set?
+Implement it so that:
+- Date has passed = card is visible
+  and flippable but shows
+  "Coming Soon" on the back
+- live: true AND date passed =
+  card shows Launch App and
+  GitHub buttons
+This way cards unlock on schedule
+automatically but only show real
+buttons when I have manually
+marked them live.
+
+4. PROMPTS.txt UPDATE
+Append these changes to PROMPTS.txt
+under a new section labelled:
+"## Homepage - Update 1 - UI and
+card fixes"
