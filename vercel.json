@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/week01/:path*",
+      "destination": "https://week01-the-planner.vercel.app/:path*"
+    },
+    {
+      "source": "/week02/:path*",
+      "destination": "https://week02-receipt-scan.vercel.app/:path*"
+    },
+    {
+      "source": "/week03/:path*",
+      "destination": "https://week03-flappy-tram.vercel.app/:path*"
+    }
+  ]
+}
