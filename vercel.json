@@ -6,7 +6,7 @@
     },
     {
       "source": "/week02/:path*",
-      "destination": "https://week02-receipt-scan.vercel.app/:path*"
+      "destination": "https://week02-receipt-scan-and-analyse.vercel.app/:path*"
     },
     {
       "source": "/week03/:path*",
