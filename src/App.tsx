@@ -40,7 +40,7 @@ const weeks: Week[] = [
     week: 2,
     title: 'Receipt Scanner & Analyser',
     description: 'Scan receipts and analyse grocery and shopping spending',
-    url: '',
+    url: 'https://52-app.com/week02',
     githubUrl: 'https://github.com/hayimpapa/week02-receipt-analyser',
     live: true,
     liveDate: '2026-03-15',
