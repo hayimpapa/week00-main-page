@@ -1,16 +1,48 @@
 {
-  "rewrites": [
+  "headers": [
     {
       "source": "/week01/:path*",
-      "destination": "https://week01-the-planner.vercel.app/:path*"
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT, DELETE, PATCH, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "X-Requested-With, Content-Type, Authorization, Cookie, Set-Cookie" },
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "X-Forwarded-Host", "value": "week01-the-planner.vercel.app" }
+      ]
     },
     {
       "source": "/week02/:path*",
-      "destination": "https://week02-receipt-scan-and-analyse.vercel.app/:path*"
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT, DELETE, PATCH, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "X-Requested-With, Content-Type, Authorization, Cookie, Set-Cookie" },
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "X-Forwarded-Host", "value": "week02-receipt-scan-and-analyse.vercel.app" }
+      ]
     },
     {
       "source": "/week03/:path*",
-      "destination": "https://week03-flappy-tram.vercel.app/:path*"
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT, DELETE, PATCH, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "X-Requested-With, Content-Type, Authorization, Cookie, Set-Cookie" },
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "X-Forwarded-Host", "value": "week03-flappy-tram.vercel.app" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/week01/:path*",
+      "destination": "https://week01-the-planner.vercel.app/week01/:path*"
+    },
+    {
+      "source": "/week02/:path*",
+      "destination": "https://week02-receipt-scan-and-analyse.vercel.app/week02/:path*"
+    },
+    {
+      "source": "/week03/:path*",
+      "destination": "https://week03-flappy-tram.vercel.app/week03/:path*"
     }
   ]
 }
