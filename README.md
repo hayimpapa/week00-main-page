@@ -10,10 +10,16 @@ Part of 52 apps in 52 weeks before I turn 52 — Hey I'm Papa.
 
 I'm Gabor. I turned 51 and made myself a slightly ridiculous promise. Every week for a year I'll build one app from scratch using AI tools — no traditional coding background, just curiosity and a problem worth solving. This homepage tracks all 52 apps, showing live ones with a flip card that links to the deployed app.
 
+## Tech
+
+React + TypeScript, built with Vite, deployed on Vercel.
+
 ## Features
 
-- 52 flip cards in a responsive grid — click to reveal app details
-- Auto-unlock: cards unlock automatically on their release date
+- 52 flip cards in a responsive grid — click to reveal app details and launch links
+- Auto-unlock: cards become flippable on their scheduled release date
+- Cards show "Coming soon" when date-unlocked but not yet marked live
+- GitHub link on each live card
 - Live progress bar
 - Clean, warm, mobile-responsive design
 
@@ -32,7 +38,7 @@ Push to GitHub and connect to [Vercel](https://vercel.com). It will auto-detect 
 
 ## Adding a new week
 
-All week data lives in a single array at the top of `src/App.tsx`:
+All week data lives in a single array at the top of `src/App.tsx`. Weeks 3–52 are auto-generated with empty placeholders. The first two weeks look like this:
 
 ```ts
 const weeks: Week[] = [
@@ -40,18 +46,19 @@ const weeks: Week[] = [
     week: 1,
     title: 'The Planner',
     description: 'Track and plan all 52 builds',
-    url: 'https://your-deployed-url.vercel.app',
+    url: 'https://52-app.com/week01',
+    githubUrl: 'https://github.com/hayimpapa/week01-the-planner',
     live: true,
     liveDate: '2026-03-08',
   },
-  // ...
+  // ...weeks 3–52 auto-generated via Array.from(...)
 ]
 ```
 
 When you ship a new app:
-1. Find the matching week entry in the array
-2. Set `live: true`
-3. Set `url` to the deployed app URL
+1. Find the matching week entry in the array (or replace its auto-generated placeholder)
+2. Set `title`, `description`, `url`, and `githubUrl`
+3. Set `live: true`
 4. Push — the card will unlock automatically on `liveDate`
 
 No other code changes needed.
