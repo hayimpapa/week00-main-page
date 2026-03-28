@@ -45,15 +45,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: '2026-03-15',
   },
-  // Weeks 3–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 50 }, (_, i) => ({
-    week: i + 3,
+  {
+    week: 3,
+    title: 'Flappy Tram',
+    description: 'A flappy bird style game with Melbourne trams',
+    url: 'https://week03-flappy-tram.vercel.app/',
+    githubUrl: 'https://github.com/hayimpapa/week03-flappy-tram',
+    live: true,
+    liveDate: '2026-03-22',
+  },
+  // Weeks 4–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 49 }, (_, i) => ({
+    week: i + 4,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 3),
+    liveDate: getWeekLiveDate(i + 4),
   })),
 ]
 
