@@ -54,15 +54,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: '2026-03-22',
   },
-  // Weeks 4–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 49 }, (_, i) => ({
-    week: i + 4,
+  {
+    week: 4,
+    title: 'Math Monsters',
+    description: 'Math Monsters',
+    url: 'https://week04-mathmonsters.vercel.app/',
+    githubUrl: 'https://github.com/hayimpapa/week04-mathmonsters',
+    live: true,
+    liveDate: getWeekLiveDate(4),
+  },
+  // Weeks 5–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 48 }, (_, i) => ({
+    week: i + 5,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 4),
+    liveDate: getWeekLiveDate(i + 5),
   })),
 ]
 
