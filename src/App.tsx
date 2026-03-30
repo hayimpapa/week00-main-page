@@ -150,6 +150,78 @@ function LockIcon() {
   )
 }
 
+// ─── Card Icons ──────────────────────────────────────────────────────────────
+
+function CalendarIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <rect x="8" y="14" width="48" height="42" rx="6" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M8 26h48" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M20 8v12M44 8v12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <rect x="16" y="32" width="8" height="6" rx="1.5" fill="currentColor" opacity="0.25" />
+      <rect x="28" y="32" width="8" height="6" rx="1.5" fill="currentColor" opacity="0.25" />
+      <rect x="40" y="32" width="8" height="6" rx="1.5" fill="currentColor" opacity="0.25" />
+      <rect x="16" y="42" width="8" height="6" rx="1.5" fill="currentColor" opacity="0.25" />
+      <rect x="28" y="42" width="8" height="6" rx="1.5" fill="currentColor" opacity="0.4" />
+    </svg>
+  )
+}
+
+function ReceiptScanIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <path d="M16 8l4 4 4-4 4 4 4-4 4 4 4-4 4 4 4-4v48l-4-4-4 4-4-4-4 4-4-4-4 4-4-4-4 4V8z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M24 22h16M24 30h12M24 38h14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <rect x="2" y="26" width="60" height="4" rx="2" fill="currentColor" opacity="0.18" />
+      <path d="M6 28h52" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 3" opacity="0.5" />
+    </svg>
+  )
+}
+
+function TramIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <rect x="14" y="16" width="36" height="36" rx="8" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M14 36h36" stroke="currentColor" strokeWidth="2.5" />
+      <rect x="20" y="22" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="2" opacity="0.5" />
+      <rect x="34" y="22" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="2" opacity="0.5" />
+      <circle cx="24" cy="44" r="3" fill="currentColor" opacity="0.35" />
+      <circle cx="40" cy="44" r="3" fill="currentColor" opacity="0.35" />
+      <path d="M32 6v10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M22 6h20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M20 52l-4 6M44 52l4 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function MathMonsterIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <ellipse cx="32" cy="36" rx="22" ry="20" stroke="currentColor" strokeWidth="2.5" />
+      <circle cx="24" cy="32" r="5" stroke="currentColor" strokeWidth="2" />
+      <circle cx="40" cy="32" r="5" stroke="currentColor" strokeWidth="2" />
+      <circle cx="24" cy="32" r="2" fill="currentColor" opacity="0.5" />
+      <circle cx="40" cy="32" r="2" fill="currentColor" opacity="0.5" />
+      <path d="M26 44c2 2 8 2 12 0" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M22 16c-2-6 2-10 4-8M42 16c2-6-2-10-4-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <text x="14" y="12" fontSize="10" fontWeight="bold" fill="currentColor" opacity="0.3" fontFamily="Georgia, serif">+</text>
+      <text x="44" y="12" fontSize="10" fontWeight="bold" fill="currentColor" opacity="0.3" fontFamily="Georgia, serif">=</text>
+      <text x="4" y="42" fontSize="10" fontWeight="bold" fill="currentColor" opacity="0.2" fontFamily="Georgia, serif">÷</text>
+      <text x="54" y="42" fontSize="10" fontWeight="bold" fill="currentColor" opacity="0.2" fontFamily="Georgia, serif">×</text>
+    </svg>
+  )
+}
+
+function getCardIcon(weekNum: number) {
+  switch (weekNum) {
+    case 1: return <CalendarIcon />
+    case 2: return <ReceiptScanIcon />
+    case 3: return <TramIcon />
+    case 4: return <MathMonsterIcon />
+    default: return null
+  }
+}
+
 function ExternalLinkIcon() {
   return (
     <svg
@@ -216,6 +288,7 @@ function WeekCard({ w }: { w: Week }) {
           {dateOpen && w.title && (
             <span className="card-front-title">{w.title}</span>
           )}
+          {dateOpen && getCardIcon(w.week)}
           {dateOpen && (
             <span className="card-flip-hint">tap to flip</span>
           )}
