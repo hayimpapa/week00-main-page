@@ -63,15 +63,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(4),
   },
-  // Weeks 5–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 48 }, (_, i) => ({
-    week: i + 5,
+  {
+    week: 5,
+    title: 'Meno Mano',
+    description: 'Meno Mano - an easy game, inspired by La Linea',
+    url: 'https://week05-menomano.vercel.app/',
+    githubUrl: 'https://github.com/hayimpapa/week05-menomano',
+    live: true,
+    liveDate: getWeekLiveDate(5),
+  },
+  // Weeks 6–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 47 }, (_, i) => ({
+    week: i + 6,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 5),
+    liveDate: getWeekLiveDate(i + 6),
   })),
 ]
 
@@ -212,12 +221,29 @@ function MathMonsterIcon() {
   )
 }
 
+function MenoManoIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <path d="M8 52c8-2 14-4 20-4s12 2 20 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="32" cy="24" r="10" stroke="currentColor" strokeWidth="2.5" />
+      <circle cx="29" cy="22" r="2" fill="currentColor" opacity="0.5" />
+      <circle cx="35" cy="22" r="2" fill="currentColor" opacity="0.5" />
+      <path d="M28 28c1.5 1.5 4.5 1.5 6 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M32 34v8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M32 42l-6 6M32 42l6 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M32 37l-8-3M32 37l8-3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M42 14c2-4 6-4 8-2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.3" />
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
     case 2: return <ReceiptScanIcon />
     case 3: return <TramIcon />
     case 4: return <MathMonsterIcon />
+    case 5: return <MenoManoIcon />
     default: return null
   }
 }
