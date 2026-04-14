@@ -72,15 +72,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(5),
   },
-  // Weeks 6–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 47 }, (_, i) => ({
-    week: i + 6,
+  {
+    week: 6,
+    title: 'Squad Health',
+    description: 'A Spotify-inspired squad health check for agile teams',
+    url: 'https://week06-agile-team-health-check.vercel.app/',
+    githubUrl: 'https://github.com/hayimpapa/week06-agile-team-health-check',
+    live: true,
+    liveDate: getWeekLiveDate(6),
+  },
+  // Weeks 7–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 46 }, (_, i) => ({
+    week: i + 7,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 6),
+    liveDate: getWeekLiveDate(i + 7),
   })),
 ]
 
@@ -237,6 +246,19 @@ function MenoManoIcon() {
   )
 }
 
+function SquadHealthIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <rect x="10" y="8" width="44" height="48" rx="6" stroke="currentColor" strokeWidth="2.5" />
+      <circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.75" />
+      <circle cx="20" cy="32" r="4" fill="currentColor" opacity="0.5" />
+      <circle cx="20" cy="44" r="4" fill="currentColor" opacity="0.3" />
+      <path d="M28 20h18M28 32h14M28 44h16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M40 54c-1-4 2-7 5-7s6 3 5 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -244,6 +266,7 @@ function getCardIcon(weekNum: number) {
     case 3: return <TramIcon />
     case 4: return <MathMonsterIcon />
     case 5: return <MenoManoIcon />
+    case 6: return <SquadHealthIcon />
     default: return null
   }
 }

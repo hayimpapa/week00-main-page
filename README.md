@@ -38,7 +38,7 @@ Push to GitHub and connect to [Vercel](https://vercel.com). It will auto-detect 
 
 ## Adding a new week
 
-All week data lives in a single array at the top of `src/App.tsx`. Weeks 3–52 are auto-generated with empty placeholders. The first two weeks look like this:
+All week data lives in a single array at the top of `src/App.tsx`. Shipped weeks are defined explicitly, and the remaining weeks up to 52 are auto-generated with empty placeholders via `Array.from(...)`. A shipped week entry looks like this:
 
 ```ts
 const weeks: Week[] = [
@@ -51,7 +51,7 @@ const weeks: Week[] = [
     live: true,
     liveDate: '2026-03-08',
   },
-  // ...weeks 3–52 auto-generated via Array.from(...)
+  // ...more shipped weeks, then remaining weeks auto-generated via Array.from(...)
 ]
 ```
 
