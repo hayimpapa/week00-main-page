@@ -84,7 +84,7 @@ const weeks: Week[] = [
   {
     week: 7,
     title: 'Meeting Prep Coach',
-    description: 'Meeting prep coach',
+    description: 'Your AI sparring partner for sharper meetings',
     url: 'https://week07-meeting-prep.vercel.app/',
     githubUrl: '',
     live: true,
@@ -268,6 +268,18 @@ function SquadHealthIcon() {
   )
 }
 
+function MeetingPrepIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <path d="M10 16c0-4 2-6 6-6h32c4 0 6 2 6 6v24c0 4-2 6-6 6H28l-8 8v-8h-4c-4 0-6-2-6-6V16z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M18 22h24M18 28h18M18 34h22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.45" />
+      <text x="48" y="60" fontSize="16" fontWeight="bold" fill="currentColor" opacity="0.4" fontFamily="Georgia, serif">?</text>
+      <text x="4" y="18" fontSize="12" fontWeight="bold" fill="currentColor" opacity="0.25" fontFamily="Georgia, serif">?</text>
+      <text x="54" y="14" fontSize="10" fontWeight="bold" fill="currentColor" opacity="0.2" fontFamily="Georgia, serif">?</text>
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -276,6 +288,7 @@ function getCardIcon(weekNum: number) {
     case 4: return <MathMonsterIcon />
     case 5: return <MenoManoIcon />
     case 6: return <SquadHealthIcon />
+    case 7: return <MeetingPrepIcon />
     default: return null
   }
 }
