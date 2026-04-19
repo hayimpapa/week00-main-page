@@ -81,15 +81,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(6),
   },
-  // Weeks 7–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 46 }, (_, i) => ({
-    week: i + 7,
+  {
+    week: 7,
+    title: 'Meeting Prep Coach',
+    description: 'Meeting prep coach',
+    url: 'https://week07-meeting-prep.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(7),
+  },
+  // Weeks 8–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 45 }, (_, i) => ({
+    week: i + 8,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 7),
+    liveDate: getWeekLiveDate(i + 8),
   })),
 ]
 
