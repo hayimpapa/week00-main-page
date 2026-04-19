@@ -57,7 +57,7 @@ const weeks: Week[] = [
   {
     week: 4,
     title: 'Math Monsters',
-    description: 'Math Monsters',
+    description: 'A monster-themed maths game for kids aged 5–10',
     url: 'https://week04-mathmonsters.vercel.app/',
     githubUrl: 'https://github.com/hayimpapa/week04-mathmonsters',
     live: true,
