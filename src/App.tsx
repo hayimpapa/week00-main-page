@@ -90,15 +90,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(7),
   },
-  // Weeks 8–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 45 }, (_, i) => ({
-    week: i + 8,
+  {
+    week: 8,
+    title: 'LinguaFlip',
+    description: 'A minimal flashcard app for learning Indonesian with spaced repetition',
+    url: 'https://week08-language-flashcards.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(8),
+  },
+  // Weeks 9–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 44 }, (_, i) => ({
+    week: i + 9,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 8),
+    liveDate: getWeekLiveDate(i + 9),
   })),
 ]
 
@@ -280,6 +289,21 @@ function MeetingPrepIcon() {
   )
 }
 
+function FlashcardIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <rect x="6" y="18" width="40" height="28" rx="4" stroke="currentColor" strokeWidth="2.5" transform="rotate(-8 26 32)" opacity="0.45" />
+      <rect x="18" y="18" width="40" height="28" rx="4" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.06" transform="rotate(6 38 32)" />
+      <text x="30" y="38" fontSize="14" fontWeight="bold" fill="currentColor" fontFamily="Georgia, serif" transform="rotate(6 38 32)">A</text>
+      <text x="44" y="38" fontSize="10" fill="currentColor" opacity="0.55" fontFamily="Georgia, serif" transform="rotate(6 38 32)">あ</text>
+      <path d="M10 10c4-2 8-2 12 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+      <path d="M22 10l-3-2M22 10l-2 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+      <path d="M54 56c-4 2-8 2-12 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+      <path d="M42 56l3 2M42 56l2-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -289,6 +313,7 @@ function getCardIcon(weekNum: number) {
     case 5: return <MenoManoIcon />
     case 6: return <SquadHealthIcon />
     case 7: return <MeetingPrepIcon />
+    case 8: return <FlashcardIcon />
     default: return null
   }
 }
