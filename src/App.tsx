@@ -99,15 +99,33 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(8),
   },
-  // Weeks 9–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 44 }, (_, i) => ({
-    week: i + 9,
+  {
+    week: 9,
+    title: 'Suburb Match',
+    description: 'A cheeky Melbourne suburb recommender — tell us your vibe and find your spiritual home',
+    url: 'https://week09-melbourne-suburbs.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(9),
+  },
+  {
+    week: 10,
+    title: 'Portfolio Pulse',
+    description: 'A mobile-first portfolio tracker with live Yahoo Finance prices, persisted to localStorage',
+    url: 'https://week10-investment-tracker.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(10),
+  },
+  // Weeks 11–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 42 }, (_, i) => ({
+    week: i + 11,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 9),
+    liveDate: getWeekLiveDate(i + 11),
   })),
 ]
 
@@ -304,6 +322,35 @@ function FlashcardIcon() {
   )
 }
 
+function SuburbMatchIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <rect x="6" y="14" width="52" height="40" rx="4" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M6 28h52M6 42h52" stroke="currentColor" strokeWidth="1.5" opacity="0.3" />
+      <path d="M22 14v40M44 14v40" stroke="currentColor" strokeWidth="1.5" opacity="0.3" />
+      <path d="M32 16c-5 0-9 4-9 9 0 7 9 17 9 17s9-10 9-17c0-5-4-9-9-9z" fill="currentColor" fillOpacity="0.18" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M32 28c-1-1.8-4-1.8-4 0.4 0 2 4 3.8 4 3.8s4-1.8 4-3.8c0-2.2-3-2.2-4-0.4z" fill="currentColor" opacity="0.65" />
+      <circle cx="13" cy="22" r="1.8" fill="currentColor" opacity="0.4" />
+      <circle cx="51" cy="48" r="1.8" fill="currentColor" opacity="0.4" />
+      <circle cx="50" cy="20" r="1.4" fill="currentColor" opacity="0.3" />
+    </svg>
+  )
+}
+
+function PortfolioPulseIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <rect x="16" y="6" width="32" height="52" rx="5" stroke="currentColor" strokeWidth="2.5" />
+      <rect x="20" y="13" width="24" height="34" rx="2" stroke="currentColor" strokeWidth="1.5" opacity="0.45" />
+      <path d="M22 38l5-6 5 4 5-10 5 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="42" cy="26" r="1.6" fill="currentColor" />
+      <path d="M42 24v-5m0 0l-2.5 2.5m2.5-2.5l2.5 2.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" opacity="0.55" />
+      <circle cx="32" cy="52" r="2" fill="currentColor" opacity="0.5" />
+      <text x="22" y="20" fontSize="6" fontWeight="bold" fill="currentColor" opacity="0.45" fontFamily="Georgia, serif">$</text>
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -314,6 +361,8 @@ function getCardIcon(weekNum: number) {
     case 6: return <SquadHealthIcon />
     case 7: return <MeetingPrepIcon />
     case 8: return <FlashcardIcon />
+    case 9: return <SuburbMatchIcon />
+    case 10: return <PortfolioPulseIcon />
     default: return null
   }
 }
