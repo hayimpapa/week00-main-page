@@ -117,9 +117,18 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(10),
   },
-  // Weeks 11–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 42 }, (_, i) => ({
-    week: i + 11,
+  {
+    week: 11,
+    title: 'Certified, Not Stupid',
+    description: 'A meme certificate generator — pick from 100 ironic certifications, add your name, and download as PDF, PNG, or email',
+    url: 'https://certified-not-stupid.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(11),
+  },
+  // Weeks 12–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 41 }, (_, i) => ({
+    week: i + 12,
     title: '',
     description: '',
     url: '',
@@ -351,6 +360,19 @@ function PortfolioPulseIcon() {
   )
 }
 
+function CertificateIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <circle cx="32" cy="26" r="14" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.08" />
+      <circle cx="32" cy="26" r="9" stroke="currentColor" strokeWidth="1.5" opacity="0.45" />
+      <path d="M32 19l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L24.8 24.3l5-.7z" fill="currentColor" opacity="0.75" />
+      <path d="M22 38l-4 18 8-4 6 4 6-4 8 4-4-18" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" fill="currentColor" fillOpacity="0.1" />
+      <path d="M14 12h8M14 16h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.3" />
+      <path d="M50 12h-8M50 16h-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.3" />
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -363,6 +385,7 @@ function getCardIcon(weekNum: number) {
     case 8: return <FlashcardIcon />
     case 9: return <SuburbMatchIcon />
     case 10: return <PortfolioPulseIcon />
+    case 11: return <CertificateIcon />
     default: return null
   }
 }
