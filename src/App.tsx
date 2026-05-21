@@ -31,7 +31,7 @@ const weeks: Week[] = [
     week: 1,
     title: 'The Planner',
     description: 'Track and plan all 52 builds',
-    url: 'https://week01-the-planner.vercel.app/week01',
+    url: 'https://week01-the-planner.vercel.app/week01/',
     githubUrl: 'https://github.com/hayimpapa/week01-the-planner',
     live: true,
     liveDate: '2026-03-08',
