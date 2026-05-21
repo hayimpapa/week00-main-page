@@ -31,7 +31,7 @@ const weeks: Week[] = [
     week: 1,
     title: 'The Planner',
     description: 'Track and plan all 52 builds',
-    url: 'https://52-app.com/week01',
+    url: 'https://week01-the-planner.vercel.app/week01',
     githubUrl: 'https://github.com/hayimpapa/week01-the-planner',
     live: true,
     liveDate: '2026-03-08',
@@ -40,7 +40,7 @@ const weeks: Week[] = [
     week: 2,
     title: 'Receipt Scanner & Analyser',
     description: 'Scan receipts and analyse grocery and shopping spending',
-    url: 'https://52-app.com/week02',
+    url: 'https://week02-receipt-scan-and-analyse.vercel.app/week02',
     githubUrl: 'https://github.com/hayimpapa/week02-receipt-analyser',
     live: true,
     liveDate: '2026-03-15',
@@ -155,11 +155,7 @@ function localToday(): Date {
 function isDateUnlocked(w: Week): boolean {
   const today = localToday()
   const scheduled = parseLocalDate(w.liveDate)
-  const unlocked = today >= scheduled
-  console.log(
-    `Week ${w.week} — today: ${today.toDateString()}, liveDate: ${scheduled.toDateString()}, dateUnlocked: ${unlocked}, live: ${w.live}`
-  )
-  return unlocked
+  return today >= scheduled
 }
 
 // Card shows full Launch + GitHub buttons only when manually marked live AND date arrived
