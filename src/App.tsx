@@ -126,15 +126,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(11),
   },
-  // Weeks 12–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 41 }, (_, i) => ({
-    week: i + 12,
+  {
+    week: 12,
+    title: 'Zendu',
+    description: 'Pick a short learning path. Watch a few modules. Finish with an AI-generated quiz to see what stuck.',
+    url: 'https://week12-zendu.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(12),
+  },
+  // Weeks 13–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 40 }, (_, i) => ({
+    week: i + 13,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 11),
+    liveDate: getWeekLiveDate(i + 12),
   })),
 ]
 
@@ -369,6 +378,20 @@ function CertificateIcon() {
   )
 }
 
+function ZenduIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      <path d="M8 48c6-2 10-10 16-10s10 8 16 8 8-6 16-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.45" strokeDasharray="3 4" />
+      <circle cx="12" cy="46" r="4" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.15" />
+      <circle cx="32" cy="40" r="4" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.15" />
+      <rect x="20" y="8" width="24" height="18" rx="3" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.08" />
+      <path d="M29 13l8 4-8 4z" fill="currentColor" opacity="0.7" />
+      <circle cx="52" cy="44" r="9" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.15" />
+      <text x="48.5" y="48.5" fontSize="11" fontWeight="bold" fill="currentColor" fontFamily="Georgia, serif">?</text>
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -382,6 +405,7 @@ function getCardIcon(weekNum: number) {
     case 9: return <SuburbMatchIcon />
     case 10: return <PortfolioPulseIcon />
     case 11: return <CertificateIcon />
+    case 12: return <ZenduIcon />
     default: return null
   }
 }
