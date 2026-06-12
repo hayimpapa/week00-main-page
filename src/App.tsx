@@ -153,15 +153,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(14),
   },
-  // Weeks 15–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 38 }, (_, i) => ({
-    week: i + 15,
+  {
+    week: 15,
+    title: 'Portfolio Rebalancer',
+    description: 'A backend-free portfolio rebalancer — set target allocations, add holdings, and get color-coded suggestions with live prices and charts',
+    url: 'https://week15-portfolio-balancer.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(15),
+  },
+  // Weeks 16–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 37 }, (_, i) => ({
+    week: i + 16,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 14),
+    liveDate: getWeekLiveDate(i + 16),
   })),
 ]
 
@@ -444,6 +453,28 @@ function MealPlannerIcon() {
   )
 }
 
+function PortfolioBalancerIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      {/* balance beam + pivot */}
+      <path d="M32 12v34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M12 18h40" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="32" cy="12" r="2.5" fill="currentColor" opacity="0.6" />
+      <path d="M24 52h16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      {/* left pan (under-target) */}
+      <path d="M6 18l6 12h0M18 18l-6 12" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
+      <path d="M5 30a7 7 0 0 0 14 0z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="currentColor" fillOpacity="0.1" />
+      {/* right pan (over-target) */}
+      <path d="M46 18l6 14h0M58 18l-6 14" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
+      <path d="M44 32a8 8 0 0 0 16 0z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="currentColor" fillOpacity="0.18" />
+      {/* pie chart of target allocation */}
+      <circle cx="32" cy="44" r="2" fill="currentColor" opacity="0.4" />
+      <text x="9" y="14" fontSize="8" fontWeight="bold" fill="currentColor" opacity="0.4" fontFamily="Georgia, serif">$</text>
+      <text x="49" y="14" fontSize="8" fontWeight="bold" fill="currentColor" opacity="0.4" fontFamily="Georgia, serif">%</text>
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -460,6 +491,7 @@ function getCardIcon(weekNum: number) {
     case 12: return <ZenduIcon />
     case 13: return <KhmerFlashcardIcon />
     case 14: return <MealPlannerIcon />
+    case 15: return <PortfolioBalancerIcon />
     default: return null
   }
 }
