@@ -162,9 +162,18 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(15),
   },
-  // Weeks 16–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 37 }, (_, i) => ({
-    week: i + 16,
+  {
+    week: 16,
+    title: 'Pálinka Panic',
+    description: 'A classic catch-the-falling-things game where every sprite is drawn from scratch with the Canvas 2D API — no images, no sprites, just pure Hungarian chaos and Web Audio sound effects',
+    url: 'https://palinka-panic.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(16),
+  },
+  // Weeks 17–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 36 }, (_, i) => ({
+    week: i + 17,
     title: '',
     description: '',
     url: '',
@@ -475,6 +484,34 @@ function PortfolioBalancerIcon() {
   )
 }
 
+function PalinkaPanicIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      {/* Falling pálinka bottle */}
+      <rect x="28" y="6" width="8" height="3" rx="1" fill="currentColor" opacity="0.6" />
+      <path d="M27 9h10l2 6H25z" fill="currentColor" opacity="0.5" />
+      <rect x="24" y="15" width="16" height="20" rx="3" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.12" />
+      <path d="M27 20h10M27 25h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+      {/* Folk art diamond on bottle */}
+      <path d="M32 22l2 2-2 2-2-2z" fill="currentColor" opacity="0.55" />
+      {/* Falling drops / smaller bottles */}
+      <circle cx="14" cy="18" r="3.5" stroke="currentColor" strokeWidth="1.8" fill="currentColor" fillOpacity="0.1" opacity="0.7" />
+      <circle cx="52" cy="28" r="2.5" stroke="currentColor" strokeWidth="1.8" fill="currentColor" fillOpacity="0.1" opacity="0.55" />
+      <circle cx="10" cy="36" r="2" fill="currentColor" opacity="0.3" />
+      {/* Catcher basket at bottom */}
+      <path d="M10 54h44" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M14 54V48c0-2 2-3 4-3h28c2 0 4 1 4 3v6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" fillOpacity="0.08" />
+      {/* Basket weave lines */}
+      <path d="M22 45v9M32 45v9M42 45v9" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+      <path d="M14 49h36" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+      {/* Hungarian folk tulip accent */}
+      <path d="M54 10c0-3 3-5 3-5s3 2 3 5-3 4-3 4-3-1-3-4z" fill="currentColor" opacity="0.3" />
+      <path d="M57 15v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.3" />
+      <path d="M55 18c-1 0-2 1-2 2M59 18c1 0 2 1 2 2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.25" />
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -492,6 +529,7 @@ function getCardIcon(weekNum: number) {
     case 13: return <KhmerFlashcardIcon />
     case 14: return <MealPlannerIcon />
     case 15: return <PortfolioBalancerIcon />
+    case 16: return <PalinkaPanicIcon />
     default: return null
   }
 }
