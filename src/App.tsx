@@ -165,21 +165,30 @@ const weeks: Week[] = [
   {
     week: 16,
     title: 'Pálinka Panic',
-    description: 'A classic catch-the-falling-things game where every sprite is drawn from scratch with the Canvas 2D API — no images, no sprites, just pure Hungarian chaos and Web Audio sound effects',
+    description: 'A catch-the-falling-things arcade game with every sprite hand-drawn on Canvas — pure Hungarian chaos, synthesised sound, no image files',
     url: 'https://palinka-panic.vercel.app/',
     githubUrl: '',
     live: true,
     liveDate: getWeekLiveDate(16),
   },
-  // Weeks 17–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 36 }, (_, i) => ({
-    week: i + 17,
+  {
+    week: 17,
+    title: 'Myki Madness',
+    description: 'A Melbourne endless-runner about sprinting for a closing tram — every pixel drawn in code, every sound synthesised live',
+    url: 'https://myki-madness.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(17),
+  },
+  // Weeks 18–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 35 }, (_, i) => ({
+    week: i + 18,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 16),
+    liveDate: getWeekLiveDate(i + 17),
   })),
 ]
 
@@ -512,6 +521,30 @@ function PalinkaPanicIcon() {
   )
 }
 
+function MykiMadnessIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      {/* Tram racing away — doors closing */}
+      <rect x="20" y="12" width="34" height="30" rx="6" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.06" />
+      <path d="M20 30h34" stroke="currentColor" strokeWidth="2" opacity="0.5" />
+      {/* Closing doors gap */}
+      <path d="M37 12v18" stroke="currentColor" strokeWidth="1.5" strokeDasharray="2 2" opacity="0.5" />
+      <rect x="26" y="18" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.8" opacity="0.5" />
+      <rect x="40" y="18" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.8" opacity="0.5" />
+      <circle cx="30" cy="36" r="2.5" fill="currentColor" opacity="0.35" />
+      <circle cx="46" cy="36" r="2.5" fill="currentColor" opacity="0.35" />
+      <path d="M37 4v8M28 6h18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Motion / speed lines */}
+      <path d="M4 20h9M2 27h11M4 34h9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.55" />
+      {/* Commuter sprinting on the platform */}
+      <circle cx="12" cy="48" r="3.5" stroke="currentColor" strokeWidth="2.2" />
+      <path d="M12 51.5l-2 7M12 54l6 3M12 54l-5 4M12 53l7-2" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+      {/* Platform line */}
+      <path d="M6 60h52" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.4" />
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -530,6 +563,7 @@ function getCardIcon(weekNum: number) {
     case 14: return <MealPlannerIcon />
     case 15: return <PortfolioBalancerIcon />
     case 16: return <PalinkaPanicIcon />
+    case 17: return <MykiMadnessIcon />
     default: return null
   }
 }
