@@ -180,15 +180,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(17),
   },
-  // Weeks 18–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 35 }, (_, i) => ({
-    week: i + 18,
+  {
+    week: 18,
+    title: 'Highway Hitchhiker',
+    description: 'A retro arcade game — pick up a passenger and drop them off while dodging obstacles down the highway',
+    url: 'https://highway-quartz.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(18),
+  },
+  // Weeks 19–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 34 }, (_, i) => ({
+    week: i + 19,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 17),
+    liveDate: getWeekLiveDate(i + 18),
   })),
 ]
 
@@ -545,6 +554,34 @@ function MykiMadnessIcon() {
   )
 }
 
+function HighwayHitchhikerIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      {/* Highway receding to horizon (perspective) */}
+      <path d="M24 58L30 14h4l6 44z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="currentColor" fillOpacity="0.06" />
+      {/* Dashed lane markings */}
+      <path d="M32 20v3M32 28v4M32 38v5M32 49v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.55" />
+      {/* Horizon line */}
+      <path d="M14 14h36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.3" />
+      {/* Retro sun on the horizon */}
+      <circle cx="46" cy="12" r="5" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.12" opacity="0.6" />
+      <path d="M41 11h10M42 14h8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
+      {/* Player car near the bottom */}
+      <path d="M20 52c0-2 1-4 3-4h6c2 0 3 2 3 4v5c0 1-1 2-2 2H22c-1 0-2-1-2-2z" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" fill="currentColor" fillOpacity="0.1" />
+      <path d="M22 51h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+      <circle cx="23" cy="59" r="1.6" fill="currentColor" opacity="0.5" />
+      <circle cx="29" cy="59" r="1.6" fill="currentColor" opacity="0.5" />
+      {/* Obstacle further up the road (cone) */}
+      <path d="M36 40l2-6 2 6z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" fill="currentColor" fillOpacity="0.15" opacity="0.7" />
+      {/* Hitchhiker on the roadside, thumb out */}
+      <circle cx="10" cy="30" r="3" stroke="currentColor" strokeWidth="2" />
+      <path d="M10 33v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M10 42l-3 6M10 42l3 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M10 36l6-3M16 33l1-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -564,6 +601,7 @@ function getCardIcon(weekNum: number) {
     case 15: return <PortfolioBalancerIcon />
     case 16: return <PalinkaPanicIcon />
     case 17: return <MykiMadnessIcon />
+    case 18: return <HighwayHitchhikerIcon />
     default: return null
   }
 }
