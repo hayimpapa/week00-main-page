@@ -189,15 +189,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(18),
   },
-  // Weeks 19–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 34 }, (_, i) => ({
-    week: i + 19,
+  {
+    week: 19,
+    title: 'Melbourne Fuel Finder',
+    description: "Live 91 Unleaded petrol prices across Melbourne, powered by Service Victoria's fuel price API",
+    url: 'https://week19-melbourne-fuel-prices.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(19),
+  },
+  // Weeks 20–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 33 }, (_, i) => ({
+    week: i + 20,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 18),
+    liveDate: getWeekLiveDate(i + 20),
   })),
 ]
 
@@ -582,6 +591,26 @@ function HighwayHitchhikerIcon() {
   )
 }
 
+function FuelFinderIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      {/* Petrol pump body */}
+      <path d="M14 56V18a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v38" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M10 56h28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Display showing the fuel grade */}
+      <rect x="17" y="19" width="14" height="11" rx="2" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1" />
+      <text x="24" y="27.5" fontSize="8" fontWeight="bold" fill="currentColor" textAnchor="middle" fontFamily="Georgia, serif">91</text>
+      {/* Price rows */}
+      <path d="M18 35h12M18 40h8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" opacity="0.4" />
+      {/* Hose feeding the nozzle */}
+      <path d="M32 22h5a3 3 0 0 1 3 3v6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.55" />
+      {/* Location pin with a fuel drop — the "finder" */}
+      <path d="M48 12c-5 0-9 4-9 9 0 6 9 16 9 16s9-10 9-16c0-5-4-9-9-9z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="currentColor" fillOpacity="0.12" />
+      <path d="M48 16c-2 3-3.5 4.5-3.5 6.5a3.5 3.5 0 0 0 7 0c0-2-1.5-3.5-3.5-6.5z" fill="currentColor" opacity="0.65" />
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -602,6 +631,7 @@ function getCardIcon(weekNum: number) {
     case 16: return <PalinkaPanicIcon />
     case 17: return <MykiMadnessIcon />
     case 18: return <HighwayHitchhikerIcon />
+    case 19: return <FuelFinderIcon />
     default: return null
   }
 }
