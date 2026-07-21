@@ -17,9 +17,10 @@ React + TypeScript, built with Vite, deployed on Vercel.
 ## Features
 
 - 52 flip cards in a responsive grid — click to reveal app details and launch links
+- A unique hand-drawn SVG icon on each shipped card, styled to match the app
 - Auto-unlock: cards become flippable on their scheduled release date
 - Cards show "Coming soon" when date-unlocked but not yet marked live
-- GitHub link on each live card
+- GitHub link on live cards that have a repo set
 - Live progress bar
 - Clean, warm, mobile-responsive design
 
@@ -46,8 +47,8 @@ const weeks: Week[] = [
     week: 1,
     title: 'The Planner',
     description: 'Track and plan all 52 builds',
-    url: 'https://52-app.com/week01',
-    githubUrl: 'https://github.com/hayimpapa/week01-the-planner',
+    url: 'https://week01-the-planner.vercel.app/week01/',
+    githubUrl: 'https://github.com/hayimpapa/week01-the-planner', // optional — leave '' to hide the button
     live: true,
     liveDate: '2026-03-08',
   },
@@ -56,12 +57,11 @@ const weeks: Week[] = [
 ```
 
 When you ship a new app:
-1. Find the matching week entry in the array (or replace its auto-generated placeholder)
-2. Set `title`, `description`, `url`, and `githubUrl`
+1. Find the matching week entry in the array (or replace its auto-generated placeholder), and shrink the `Array.from(...)` length so the placeholders continue from the next week
+2. Set `title`, `description`, `url`, and (optionally) `githubUrl`
 3. Set `live: true`
-4. Push — the card will unlock automatically on `liveDate`
-
-No other code changes needed.
+4. Add a card icon: write an SVG component in the App's line-art style (`viewBox="0 0 64 64"`, `className="card-icon"`, `stroke="currentColor"`) and register it in the `getCardIcon` switch under the week number
+5. Push — the card will unlock automatically on `liveDate`
 
 ## Prompt history
 
