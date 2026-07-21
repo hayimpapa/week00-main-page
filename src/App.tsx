@@ -198,15 +198,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(19),
   },
-  // Weeks 20–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 33 }, (_, i) => ({
-    week: i + 20,
+  {
+    week: 20,
+    title: 'Nightshift',
+    description: 'A simple biohack app to log sleep and cardio activity on a daily basis, saved in localStorage',
+    url: 'https://biohack-mini.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(20),
+  },
+  // Weeks 21–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 32 }, (_, i) => ({
+    week: i + 21,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 20),
+    liveDate: getWeekLiveDate(i + 21),
   })),
 ]
 
@@ -611,6 +620,25 @@ function FuelFinderIcon() {
   )
 }
 
+function NightshiftIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      {/* Crescent moon — sleep / night */}
+      <path d="M42 8a20 20 0 1 0 14 30 16 16 0 0 1-14-30z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="currentColor" fillOpacity="0.08" />
+      {/* Cardio pulse / heartbeat line across the middle */}
+      <path d="M6 44h9l4-9 6 18 5-13 4 8 5-5h14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Small heart marking the cardio beat */}
+      <path d="M50 40c-1-1.6-3.6-1.6-3.6.4 0 1.8 3.6 3.4 3.6 3.4s3.6-1.6 3.6-3.4c0-2-2.6-2-3.6-.4z" fill="currentColor" opacity="0.6" />
+      {/* Stars / sleepy sparkle */}
+      <path d="M14 14l1.2 3 3 1.2-3 1.2L14 22l-1.2-2.6-3-1.2 3-1.2z" fill="currentColor" opacity="0.5" />
+      <circle cx="26" cy="10" r="1.6" fill="currentColor" opacity="0.4" />
+      <circle cx="8" cy="28" r="1.4" fill="currentColor" opacity="0.3" />
+      {/* "Z" for sleep */}
+      <path d="M52 52h7l-7 7h7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.45" />
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -632,6 +660,7 @@ function getCardIcon(weekNum: number) {
     case 17: return <MykiMadnessIcon />
     case 18: return <HighwayHitchhikerIcon />
     case 19: return <FuelFinderIcon />
+    case 20: return <NightshiftIcon />
     default: return null
   }
 }
