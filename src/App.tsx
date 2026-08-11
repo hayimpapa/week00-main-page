@@ -207,15 +207,24 @@ const weeks: Week[] = [
     live: true,
     liveDate: getWeekLiveDate(20),
   },
-  // Weeks 21–52: fill in title/description/url/githubUrl each week
-  ...Array.from({ length: 32 }, (_, i) => ({
-    week: i + 21,
+  {
+    week: 21,
+    title: 'Heads-Up Poker',
+    description: 'Play one-on-one Texas Hold’em against an easy AI opponent, right in your browser',
+    url: 'https://hupoker.vercel.app/',
+    githubUrl: '',
+    live: true,
+    liveDate: getWeekLiveDate(21),
+  },
+  // Weeks 22–52: fill in title/description/url/githubUrl each week
+  ...Array.from({ length: 31 }, (_, i) => ({
+    week: i + 22,
     title: '',
     description: '',
     url: '',
     githubUrl: '',
     live: false,
-    liveDate: getWeekLiveDate(i + 21),
+    liveDate: getWeekLiveDate(i + 22),
   })),
 ]
 
@@ -639,6 +648,24 @@ function NightshiftIcon() {
   )
 }
 
+function HeadsUpPokerIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="card-icon" aria-hidden="true">
+      {/* Left hole card — spade */}
+      <rect x="10" y="20" width="24" height="32" rx="4" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.06" transform="rotate(-10 22 36)" />
+      <path d="M20 30c-3 3-5 5-5 7.5a3 3 0 0 0 5 2.2 3 3 0 0 0 5-2.2c0-2.5-2-4.5-5-7.5z" fill="currentColor" opacity="0.7" transform="rotate(-10 22 36)" />
+      <path d="M20 40v4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" transform="rotate(-10 22 36)" />
+      {/* Right hole card — heart */}
+      <rect x="30" y="20" width="24" height="32" rx="4" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.1" transform="rotate(10 42 36)" />
+      <path d="M42 42c-6-4-9-6-9-9.5 0-2.5 3.5-3.5 4.5-1 1 1 2 1 4.5 0 1-2.5 4.5-1.5 4.5 1 0 3.5-3 5.5-4.5 9.5z" fill="currentColor" opacity="0.6" transform="rotate(10 42 36)" />
+      {/* Stacked poker chips */}
+      <ellipse cx="32" cy="56" rx="15" ry="5" stroke="currentColor" strokeWidth="2.5" fill="currentColor" fillOpacity="0.08" />
+      <path d="M17 56v-3a15 5 0 0 0 30 0v3" stroke="currentColor" strokeWidth="2.5" opacity="0.5" />
+      <path d="M24 56h4M36 56h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+    </svg>
+  )
+}
+
 function getCardIcon(weekNum: number) {
   switch (weekNum) {
     case 1: return <CalendarIcon />
@@ -661,6 +688,7 @@ function getCardIcon(weekNum: number) {
     case 18: return <HighwayHitchhikerIcon />
     case 19: return <FuelFinderIcon />
     case 20: return <NightshiftIcon />
+    case 21: return <HeadsUpPokerIcon />
     default: return null
   }
 }
